@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/vendors/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/vendors/angular.js"></script>
+    <script src="/scripts/client.js"></script>
+    <script src="scripts/controllers/message.controller.js"></script>
+
+
+    <title>Messages</title>
+</head>
+
+<body ng-app="MessageApp" ng-controller="MessageController as vm">
+    <form ng-submit="vm.postMessage()">
+        <input type="text" ng-model="vm.newMessage.name">
+        <input type="text" ng-model="vm.newMessage.message">
+        <input type="submit">
+    </form>
+
+    <section id="messages">
+        <p ng-repeat="mess in vm.messages.all">{{mess.name}}: {{mess.message}}</p>
+    </section>
+</body>
+
+</html>
